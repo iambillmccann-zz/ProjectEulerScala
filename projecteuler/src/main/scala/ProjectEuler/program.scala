@@ -29,23 +29,23 @@ object Program extends App {
    * @return          An integer representing the problem number or -1 to quit
    */
   def CheckUserInput(userInput: String): Int = {
-    if (userInput.toUpperCase == QUITSTRING) -1
-    else 
-      try {
-        val problemNumber: Int = userInput.toInt
-        if (problemNumber < 0) {
-          println("\nBTW, problem numbers are positive integers.")
-          GetUserInput()
-        } else if (problemNumber > LASTPROBLEM) {
-          println("\nI have only completed problems 1 through " + LASTPROBLEM)
-          GetUserInput()
-        } else problemNumber
-      } catch {
-        case e: Exception => {
-          println("\nSorry but I did not understand that. Please type the problem number or Q to quit.")
-          GetUserInput()
-        }
+    if (userInput.toUpperCase == QUITSTRING) return -1
+
+    try {
+      val problemNumber: Int = userInput.toInt
+      if (problemNumber < 0) {
+        println("\nBTW, problem numbers are positive integers.")
+        GetUserInput()
+      } else if (problemNumber > LASTPROBLEM) {
+        println("\nI have only completed problems 1 through " + LASTPROBLEM)
+        GetUserInput()
+      } else problemNumber
+    } catch {
+      case e: Exception => {
+        println("\nSorry but I did not understand that. Please type the problem number or Q to quit.")
+        GetUserInput()
       }
+    }
   }
 
   /**

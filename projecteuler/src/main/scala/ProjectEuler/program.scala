@@ -59,7 +59,10 @@ object Program extends App {
   def RunProblem(problemNumber: Int): Int = {
     if (problemNumber < 1) problemNumber
     else {
-      println(ProblemFactory.GetSolution(problemNumber).Compute)
+      println("\n-----------------------------------------------------------------------")
+      println("Solution to problem " + problemNumber + " = " + ProblemFactory.GetSolution(problemNumber).Compute)
+      // println(Execution time was " + Utilities.FormatMilliseconds(totalTime.ElapsedMilliseconds))
+      println("-----------------------------------------------------------------------")
       RunProblem(GetUserInput())
     }
   }

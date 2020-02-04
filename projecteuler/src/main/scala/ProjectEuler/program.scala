@@ -1,10 +1,12 @@
 package ProjectEuler
 
+import ProjectEuler.EulerLibrary.Problems._
+
 object Program extends App {
 
   val QUITSTRING: String = "Q"
-  val LASTPROBLEM: Int = 51
-
+  val LASTPROBLEM: Int = 1
+  
   /**
    * getUserInput is a simple method for reading from the console.
    * 
@@ -57,7 +59,7 @@ object Program extends App {
   def RunProblem(problemNumber: Int): Int = {
     if (problemNumber < 1) problemNumber
     else {
-      println("Run the problem " + problemNumber)
+      println(ProblemFactory.GetSolution(problemNumber).Compute)
       RunProblem(GetUserInput())
     }
   }

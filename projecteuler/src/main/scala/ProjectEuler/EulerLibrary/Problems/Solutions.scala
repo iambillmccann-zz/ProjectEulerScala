@@ -19,5 +19,8 @@ object Multiple3or5 extends IEulerSolution {
       *
       * @return
       */
-    def Compute: String = "3.1415926"
+    def Compute: String = {
+      Thread.sleep(2333)
+      "3.1415926"
+    }
 }

@@ -1,6 +1,7 @@
 package ProjectEuler
 
 import ProjectEuler.EulerLibrary.Problems._
+import ProjectEuler.EulerLibrary.Utilities
 
 object Program extends App {
 
@@ -59,11 +60,18 @@ object Program extends App {
   def RunProblem(problemNumber: Int): Int = {
     if (problemNumber < 1) problemNumber
     else {
+
+      val startTime: Long = System.nanoTime()
+      val result: String = ProblemFactory.GetSolution(problemNumber).Compute
+      val stopTime: Long = System.nanoTime()
+      val totalTime: Long = stopTime - startTime
+
       println("\n-----------------------------------------------------------------------")
-      println("Solution to problem " + problemNumber + " = " + ProblemFactory.GetSolution(problemNumber).Compute)
-      // println(Execution time was " + Utilities.FormatMilliseconds(totalTime.ElapsedMilliseconds))
+      println("Solution to problem " + problemNumber + " = " + result)
+      println("Execution time was " + Utilities.FormatMilliseconds(totalTime))
       println("-----------------------------------------------------------------------")
       RunProblem(GetUserInput())
+
     }
   }
 

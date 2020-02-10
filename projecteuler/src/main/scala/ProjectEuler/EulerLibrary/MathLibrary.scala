@@ -12,4 +12,19 @@ object MathLibrary {
   */
   def ArithmeticSeries(numberOfTerms: Long, firstTerm: Long, lastTerm: Long): Long = numberOfTerms * (firstTerm + lastTerm) / 2
 
+  /**
+    * IsMultiple determines if one number is an even multiple of another. The numbers must be integers
+    *
+    * @param value    The number being checked
+    * @param divisor  The number that may be a factor
+    * @return         True if the numbers are even multiples, otherwise False
+    */
+  def IsMultiple(value: Long, divisor: Long): Boolean = {
+  
+    if (divisor == 0) false
+    else if (value % divisor == 0) true
+    else false
+
+  }
+
 }

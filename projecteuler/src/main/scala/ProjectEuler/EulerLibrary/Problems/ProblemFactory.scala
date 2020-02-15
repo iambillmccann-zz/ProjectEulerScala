@@ -15,6 +15,7 @@ object ProblemFactory {
         problemNumber match {
             case 1 => Multiple3or5
             case 2 => EvenFibonacci
+            case 3 => LargestPrimeFactor
             case _ => GenericSolution
         }
     }

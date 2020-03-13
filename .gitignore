@@ -48,3 +48,10 @@ target/streams/runtime/internalDependencyAsJars/_global/streams/export
 target/streams/runtime/managedClasspath/_global/streams/export
 target/streams/runtime/unmanagedClasspath/_global/streams/export
 target/streams/runtime/unmanagedJars/_global/streams/export
+
+# ~/.gitignore
+.metals/
+projecteuler/.metals/
+projecteuler/.bloop/
+projecteuler/project/metals.sbt
+projecteuler/target/

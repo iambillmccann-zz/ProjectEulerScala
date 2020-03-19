@@ -67,4 +67,18 @@ object MathLibrary {
 
   }
 
+  def ReverseDigits(number: Long): Long = {
+
+    def ReverseDigitsAcc(number: Long, result: Long): Long = {
+      if (number == 0) return result
+
+      val remainder: Long = number % 10
+      val accumulator: Long = (result * 10) + remainder
+
+      ReverseDigitsAcc(number / 10, accumulator)
+    }
+
+    ReverseDigitsAcc(number, 0)
+  }
+
 }

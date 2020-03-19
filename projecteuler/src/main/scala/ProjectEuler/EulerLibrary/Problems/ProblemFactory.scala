@@ -16,6 +16,7 @@ object ProblemFactory {
             case 1 => Multiple3or5
             case 2 => EvenFibonacci
             case 3 => LargestPrimeFactor
+            case 4 => LargestPalindromeProduct
             case _ => GenericSolution
         }
     }

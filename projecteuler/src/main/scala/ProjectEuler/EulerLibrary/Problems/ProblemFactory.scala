@@ -18,6 +18,7 @@ object ProblemFactory {
             case 3 => LargestPrimeFactor
             case 4 => LargestPalindromeProduct
             case 5 => SmallestMultiple
+            case 6 => SumSquareDifference
             case _ => GenericSolution
         }
     }

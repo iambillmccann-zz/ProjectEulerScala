@@ -33,4 +33,22 @@ class MathLibraryTests extends FunSuite {
         assert(MathLibrary.IsMultiple(37, 66) == false)
     }
 
+    test("Computing the square of type Long") {
+        assert(MathLibrary.Square(5) == 25)
+        assert(MathLibrary.Square(0) == 0)
+        assert(MathLibrary.Square(-1) == 1)
+    }
+
+    test("Computing the sum of natural numbers") {
+        assert(MathLibrary.NaturalSum(10) == 55)
+        assert(MathLibrary.NaturalSum(0) == 0)
+        assert(MathLibrary.NaturalSum(-10) == 0)
+    }
+
+    test("Compute the sum of squares for natural numbers") {
+        assert(MathLibrary.NaturalSumSquares(10) == 385)
+        assert(MathLibrary.NaturalSumSquares(0) == 0)
+        assert(MathLibrary.NaturalSumSquares(-10) == 0)
+    }
+
 }

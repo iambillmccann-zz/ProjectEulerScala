@@ -1,5 +1,7 @@
 package ProjectEuler.EulerLibrary
 
+import scala.annotation.tailrec
+
 object MathLibrary {
 
   /**
@@ -81,4 +83,32 @@ object MathLibrary {
     ReverseDigitsAcc(number, 0)
   }
 
+  def Square(number: Long): Long = {
+    return number * number
+  }
+
+  def NaturalSum(number: Long): Long = {
+
+    if (number <= 0) return 0
+
+    @tailrec
+    def iterate(start: Long, stop: Long, accumulator: Long): Long = {
+      if (start == stop) accumulator + start else iterate(start + 1, stop, accumulator + start)
+    }
+    
+    return iterate(1L, number, 0L)
+  }
+
+  def NaturalSumSquares(number: Long): Long = {
+
+    if (number <= 0) return 0
+    
+    @tailrec
+    def iterate(start: Long, stop: Long, accumulator: Long): Long = {
+      if (start == stop) accumulator + MathLibrary.Square(start) 
+      else iterate(start + 1, stop, accumulator + MathLibrary.Square(start))
+    }
+    
+    return iterate(1L, number, 0L)
+  }
 }

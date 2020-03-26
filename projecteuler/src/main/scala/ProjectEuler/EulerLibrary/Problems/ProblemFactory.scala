@@ -14,6 +14,11 @@ object ProblemFactory {
     def GetSolution(problemNumber : Int) : IEulerSolution = {
         problemNumber match {
             case 1 => Multiple3or5
+            case 2 => EvenFibonacci
+            case 3 => LargestPrimeFactor
+            case 4 => LargestPalindromeProduct
+            case 5 => SmallestMultiple
+            case 6 => SumSquareDifference
             case _ => GenericSolution
         }
     }

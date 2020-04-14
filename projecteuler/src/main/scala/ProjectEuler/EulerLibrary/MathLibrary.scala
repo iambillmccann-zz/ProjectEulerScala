@@ -111,4 +111,19 @@ object MathLibrary {
     
     return iterate(1L, number, 0L)
   }
+
+  def SeriesProduct(numbers: List[Long]): Long = {
+      @tailrec
+      def productAccumulator(numbers: List[Long], accumulator: Long): Long = {
+          numbers match {
+              case Nil => accumulator
+              case x :: tail => productAccumulator(tail, accumulator * x)
+          }
+      }
+      productAccumulator(numbers, 1)
+  }
+
+  def SeriesSum(numbers: List[Long]): Long = {
+    numbers.sum
+  }
 }

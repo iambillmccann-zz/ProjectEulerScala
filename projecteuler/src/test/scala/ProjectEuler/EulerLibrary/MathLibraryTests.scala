@@ -51,4 +51,32 @@ class MathLibraryTests extends FunSuite {
         assert(MathLibrary.NaturalSumSquares(-10) == 0)
     }
 
+    test("Retrieve a list of prime numbers") {
+        val expected = 2 :: 3 :: 5 :: 7 :: 11 :: 13 :: 17 :: 19 :: Nil
+        assert(MathLibrary.GetPrime(20) == expected)
+
+        var actual = MathLibrary.GetPrime(23)
+        assert(actual.length == 9)
+
+        actual = MathLibrary.GetPrime(7920)
+        assert(actual.length == 1000)
+        assert(actual(actual.length - 1) == 7919)
+    }
+
+    test("Compute the product of a list") {
+        var numbers = 2L :: 3L :: 4L :: 5L :: Nil
+        assert(MathLibrary.SeriesProduct(numbers) == 120)
+
+        numbers = 0L :: 999L :: 33L :: -1L :: 10L :: Nil
+        assert(MathLibrary.SeriesProduct(numbers) == 0)
+
+        numbers = 9L :: 9L :: 8L :: 9L :: Nil
+        assert(MathLibrary.SeriesProduct(numbers) == 5832)
+    }
+
+    test("Compute the sume of a list") {
+        val numbers = 2L :: 3L :: 5L :: 7L :: Nil
+        assert(MathLibrary.SeriesSum == 17)
+    }
+
 }

@@ -20,6 +20,7 @@ object ProblemFactory {
             case 5 => SmallestMultiple
             case 6 => SumSquareDifference
             case 7 => Prime10001
+            case 8 => LargestProductSeries
             case 10 => SummationPrimes
             case _ => GenericSolution
         }

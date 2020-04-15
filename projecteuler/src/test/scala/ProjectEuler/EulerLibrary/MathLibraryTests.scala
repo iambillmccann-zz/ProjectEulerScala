@@ -76,7 +76,7 @@ class MathLibraryTests extends FunSuite {
 
     test("Compute the sume of a list") {
         val numbers = 2L :: 3L :: 5L :: 7L :: Nil
-        assert(MathLibrary.SeriesSum == 17)
+        assert(MathLibrary.SeriesSum(numbers) == 17)
     }
 
 }

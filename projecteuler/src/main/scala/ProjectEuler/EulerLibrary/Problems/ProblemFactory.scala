@@ -23,6 +23,7 @@ object ProblemFactory {
             case 8 => LargestProductSeries
             case 9 => PythagoreanTriplet
             case 10 => SummationPrimes
+            case 11 => LargestProductGrid
             case _ => GenericSolution
         }
     }

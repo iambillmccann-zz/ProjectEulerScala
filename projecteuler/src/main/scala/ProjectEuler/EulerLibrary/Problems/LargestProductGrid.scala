@@ -30,7 +30,7 @@ object LargestProductGrid extends IEulerSolution {
       * @return the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
       */
     def Compute: String = {
-        val result: Int  = 0
+        val result: Long  = 0L
         val SERIES_SIZE: Int = 4
         val matrix = Array(
             Array ( 8,  2, 22, 97, 38, 15,  0, 40,  0, 75,  4,  5,  7, 78, 52, 12, 50, 77, 91,  8),
@@ -55,28 +55,62 @@ object LargestProductGrid extends IEulerSolution {
             Array ( 1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52,  1, 89, 19, 67, 48)
         )
 
-        def iterRows (row: Int, col: Int, result: Int): Int = {
+        def iterRows (row: Int, col: Int, result: Long): Long = {
             if (row >= 20) return result
-            val newResult:  Int = iterCols (row, col, result)
+            val newResult:  Long = iterCols (row, col, result)
             iterRows (row + 1, 0, newResult)
         }
 
-        def iterCols (row: Int, col: Int, result: Int): Int = {
+        def iterCols (row: Int, col: Int, result: Long): Long = {
             if (col >= 20) return result
-            var newResult: Int = checkHorizontal(row, col, result)
+            var newResult: Long = checkHorizontal(row, col, result)
+            newResult = checkVertical(row, col, newResult)
+            newResult = checkDiagonal1(row, col, newResult)
+            newResult = checkDiagonal2(row, col, newResult)
             iterCols (row, col + 1, newResult)
         }
 
-        def checkHorizontal (row: Int, col: Int, result: Int): Int = {
+        def checkHorizontal (row: Int, col: Int, result: Long): Long = {
             if (col >= (20 - SERIES_SIZE)) return result
-            // make list
-            // compute product
-            // compare and return
-            result
+            val series = List(matrix(row)(col).toLong,
+                              matrix(row)(col + 1).toLong,
+                              matrix(row)(col + 2).toLong,
+                              matrix(row)(col + 3).toLong)
+            val trial: Long = MathLibrary.SeriesProduct(series)
+            if (trial > result) trial else result
         }
 
+        def checkVertical (row: Int, col: Int, result: Long): Long = {
+            if (row >= (20 - SERIES_SIZE)) return result
+            val series = List(matrix(row)(col).toLong,
+                              matrix(row + 1)(col).toLong,
+                              matrix(row + 2)(col).toLong,
+                              matrix(row + 3)(col).toLong)
+            val trial: Long = MathLibrary.SeriesProduct(series)
+            if (trial > result) trial else result
+        }
 
-        return result.toString
+        def checkDiagonal1 (row: Int, col: Int, result: Long): Long = {
+            if (row >= (20 - SERIES_SIZE) || col >= (20 - SERIES_SIZE)) return result
+            val series = List(matrix(row + 3)(col).toLong,
+                              matrix(row + 2)(col + 1).toLong,
+                              matrix(row + 1)(col + 2).toLong,
+                              matrix(row)(col + 3).toLong)
+            val trial: Long = MathLibrary.SeriesProduct(series)
+            if (trial > result) trial else result
+        }
+
+        def checkDiagonal2 (row: Int, col: Int, result: Long): Long = {
+            if (row >= (20 - SERIES_SIZE) || col >= (20 - SERIES_SIZE)) return result
+            val series = List(matrix(row)(col).toLong,
+                              matrix(row + 1)(col + 1).toLong,
+                              matrix(row + 2)(col + 2).toLong,
+                              matrix(row + 3)(col + 3).toLong)
+            val trial: Long = MathLibrary.SeriesProduct(series)
+            if (trial > result) trial else result
+        }
+
+        return (iterRows(0, 0, 0L)).toString
     }
 
 }

@@ -1,1 +1,5 @@
 target/
+
+# My stuff
+metals*
+.metals*

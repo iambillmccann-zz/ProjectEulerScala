@@ -21,6 +21,7 @@ object ProblemFactory {
             case 6 => SumSquareDifference
             case 7 => Prime10001
             case 8 => LargestProductSeries
+            case 9 => PythagoreanTriplet
             case 10 => SummationPrimes
             case _ => GenericSolution
         }

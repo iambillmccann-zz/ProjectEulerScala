@@ -14,6 +14,34 @@ object MathLibrary {
   */
   def ArithmeticSeries(numberOfTerms: Long, firstTerm: Long, lastTerm: Long): Long = numberOfTerms * (firstTerm + lastTerm) / 2
 
+  /** 
+    * This method returns a collection of divisors for a given number
+    * 
+    * @param number      The number being factored</param>
+    * @return            Collection of divisors</returns>
+    */
+ def GetDivisors(number: Long): List[Long] = {
+
+    val limit: Long =  Math.ceil(Math.sqrt(number.toDouble)).toLong
+
+    @tailrec
+    def iterate_range(divisor: Long, to: Long, divisors: List[Long]): List[Long] = {
+
+      if (divisor > to) return divisors
+      
+      var newList: List[Long] = divisors
+      if (IsMultiple(number, divisor)) {
+        newList = divisor :: newList
+        val quotient: Long = number / divisor
+        if (divisor != quotient && number != divisor) newList = quotient :: newList
+      }
+
+      return iterate_range(divisor + 1L, to, newList)
+    }
+
+    return iterate_range(1L, limit, Nil)
+  }
+
   /**
     * Retrieve a list of all the prime factors for a given number. Two things to notes about this algorithm ...
     *     1. Prime Numbers are passed in because the factors will be member of that set

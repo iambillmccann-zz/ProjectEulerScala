@@ -74,9 +74,28 @@ class MathLibraryTests extends FunSuite {
         assert(MathLibrary.SeriesProduct(numbers) == 5832)
     }
 
-    test("Compute the sume of a list") {
+    test("Compute the sum of a list") {
         val numbers = 2L :: 3L :: 5L :: 7L :: Nil
         assert(MathLibrary.SeriesSum(numbers) == 17)
+    }
+
+    test("Compute the divisors for a number") {
+        var expected: List[Long] = 1L :: Nil
+        assert(MathLibrary.GetDivisors(1) == expected)
+
+        var actual = MathLibrary.GetDivisors(3)
+        assert(actual.length == 2)
+        assert(actual.contains(1L))
+        assert(actual.contains(3L))
+
+        actual = MathLibrary.GetDivisors(28)
+        assert(actual.length == 6)
+        assert(actual.contains(1L))
+        assert(actual.contains(2L))
+        assert(actual.contains(4L))
+        assert(actual.contains(7L))
+        assert(actual.contains(14L))
+        assert(actual.contains(28L))
     }
 
 }

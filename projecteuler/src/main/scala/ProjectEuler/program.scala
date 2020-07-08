@@ -6,7 +6,7 @@ import ProjectEuler.EulerLibrary.Utilities
 object Program extends App {
 
   val QUITSTRING: String = "Q"
-  val LASTPROBLEM: Int = 11
+  val LASTPROBLEM: Int = 12
   
   /**
    * getUserInput is a simple method for reading from the console.

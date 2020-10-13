@@ -25,6 +25,7 @@ object ProblemFactory {
             case 10 => SummationPrimes
             case 11 => LargestProductGrid
             case 12 => HighlyDivisibleTriangle
+            case 13 => LargeSum
             case _ => GenericSolution
         }
     }

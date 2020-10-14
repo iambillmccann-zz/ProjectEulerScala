@@ -126,10 +126,26 @@ object LargeSum extends IEulerSolution {
         sum
     }
 
+    def ToInteger(item: Char): Int = {
+        item match {
+            case '0' => 0
+            case '1' => 1
+            case '2' => 2
+            case '3' => 3
+            case '4' => 4
+            case '5' => 5
+            case '6' => 6
+            case '7' => 7
+            case '8' => 8
+            case '9' => 9
+            case _   => 0
+        }
+    }
+
     def Compute: String = {
 
-        var numbers = ("37107287533902102798797998220837590246510135740250".map(item => item.toInt)).toList;
-        // numbers = AddLists(numbers, ("46376937677490009712648124896970078050417018260538".map(item => item.toInt)).toList);
+        var numbers = ("37107287533902102798797998220837590246510135740250".map(item => ToInteger(item))).toList;
+        numbers = AddLists(numbers, ("46376937677490009712648124896970078050417018260538".map(item => ToInteger(item))).toList);
 
         val stringNumbers: String = numbers.mkString("");
         return stringNumbers
